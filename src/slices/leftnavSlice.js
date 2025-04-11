@@ -3,14 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const leftnavSlice = createSlice({
     name: 'leftnav',
     initialState: {
-        isLeftnavOpen: false
+        isLeftnavOpen: true
     },
     reducers: {
         toggleLeftnav: (state) => {
             state.isLeftnavOpen = !state.isLeftnavOpen
+        },
+        closeLeftNav: (state)=>{
+            state.isLeftnavOpen = false
         }
     }
 })
 
-export const {toggleLeftnav} = leftnavSlice.actions
+export const {toggleLeftnav, closeLeftNav} = leftnavSlice.actions
 export default leftnavSlice.reducer
