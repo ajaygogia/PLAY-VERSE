@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MENU_LOGO, SIGN_IN_LOGO, YT_LOGO } from '../utilities/constants'
 import { useDispatch } from 'react-redux'
 import { toggleLeftnav } from '../slices/leftnavSlice'
 
 const Header = () => {
     const dispatch = useDispatch()
+    const [youtubeSuggestions, setYoutubeSuggestions] = useState('')
+    const [showSuggestions, setShowSuggestions] = useState(false)
+    const [suggestions, setSuggestions] = useState([])
     function toggleMenu() {
         dispatch(toggleLeftnav())
+    }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            youtubeSearch(youtubeSuggestions)
+        }, 300)
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [youtubeSuggestions])
+
+    async function youtubeSearch(value) {
+        const data = await fetch('http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=' + value)
+        const json = await data.json()
+        setSuggestions(json[1])
+        console.log(suggestions)
     }
     return (
         <div className='grid grid-flow-col'>
@@ -15,8 +34,13 @@ const Header = () => {
                 <img className='m-4 h-7' alt='youtube-logo' src={YT_LOGO}></img>
             </div>
             <div className='col-span-10 -mx-10 my-4 text-center'>
-                <input className='border p-2 h-8 border-black w-1/2 rounded-l-full' type='text' placeholder='Search'></input>
+                <input onFocus={() => setShowSuggestions(true)} onBlur={() => setShowSuggestions(false)} onChange={(e) => setYoutubeSuggestions(e.target.value)} className='border p-2 h-8 border-black w-1/2 rounded-l-full' type='text' placeholder='Search'></input>
                 <button className='absolute border px-2 h-8 border-black rounded-r-full' type='button'>🔍</button>
+                {showSuggestions && <div className='w-[40%] py-2px text-justify ml-[19%] absolute rounded-lg'>
+                    <ul className='rounded-lg'>
+                        {suggestions.map(s => <li key={s} className='px-2 py-1 bg-gray-50 hover:bg-gray-300'>🔍 {s}</li>)}
+                    </ul>
+                </div>}
             </div>
             <div className='col-span-1'>
                 <img className='m-4 ml-6 h-7' alt='sign-in' src={SIGN_IN_LOGO}></img>

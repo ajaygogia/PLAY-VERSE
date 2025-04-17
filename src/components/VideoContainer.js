@@ -18,7 +18,7 @@ const VideoContainer = () => {
     <div className='flex flex-row gap-6 flex-wrap gap-10'>
       {videos.map((video) => {
         return (
-          <Link to={'watch?v=' + video?.id}>
+          <Link key={video.id} to={'watch?v=' + video?.id}>
           <Thumbnail info={video}></Thumbnail>
           </Link>
         )
