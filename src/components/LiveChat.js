@@ -32,11 +32,11 @@ const LiveChat = () => {
 
     return (
         <div className='flex flex-col-reverse'>
-            <form className='absolute w-[30%]' onSubmit={(e)=>{e.preventDefault()}}>
-            <input value={liveMessage} type='text' className='h-10 p-4 my-2 ml-2 w-3/4' onChange={(e)=>{
+            <form className='w-full' onSubmit={(e)=>{e.preventDefault()}}>
+            <input value={liveMessage} type='text' className='h-10 m-2 w-[80%] p-4' onChange={(e)=>{
                 setLiveMessage(e.target.value)
             }} placeholder='type your text'></input>
-            <button onClick={addToLiveChat} className='cursor-pointer absolute m-2 h-10 border w-20 border-black rounded-sm bg-slate-400'>Add</button>
+            <button onClick={addToLiveChat} className='cursor-pointer h-10 border w-20 border-black rounded-sm bg-slate-400'>Add</button>
             </form>
             {message.map((message, i) => <ChatMessage key={i} name={message?.name} message={message?.message} />)}
         </div>
