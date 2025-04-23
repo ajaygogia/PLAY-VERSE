@@ -6,12 +6,13 @@ import { getRandomMessages, getRandomNames } from '../utilities/helpers'
 
 const LiveChat = () => {
     const dispatch = useDispatch()
+    const user = useSelector((store) => store.user)
     const message = useSelector((store) => store.chat.messages)
     const [liveMessage, setLiveMessage] = useState('')
 
     function addToLiveChat() {
         dispatch(addMessage({
-            name: 'User',
+            name: user?.displayName ?? 'Guest',
             message: liveMessage
         }))
         setLiveMessage('')

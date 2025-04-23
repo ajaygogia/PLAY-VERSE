@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { MENU_LOGO, SIGN_IN_LOGO, YT_LOGO } from '../utilities/constants'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toggleLeftnav } from '../slices/leftnavSlice'
+import { signOut } from 'firebase/auth'
+import { auth } from '../utilities/fireBase'
 
 const Header = () => {
+    const user = useSelector((store) => store.user)
     const dispatch = useDispatch()
     const [youtubeSuggestions, setYoutubeSuggestions] = useState('')
     const [showSuggestions, setShowSuggestions] = useState(false)
     const [suggestions, setSuggestions] = useState([])
     function toggleMenu() {
         dispatch(toggleLeftnav())
+    }
+
+    function logOut() {
+        signOut(auth).then(() => {
+        }).catch((error) => {
+        });
     }
 
     useEffect(() => {
@@ -42,9 +51,11 @@ const Header = () => {
                     </ul>
                 </div>}
             </div>
-            <div className='col-span-1'>
+            {user && <div className='col-span-1 flex items-center'>
                 <img className='m-4 ml-6 h-7' alt='sign-in' src={SIGN_IN_LOGO}></img>
-            </div>
+                <span>{user?.email}</span>
+                <span className='cursor-pointer ml-3' onClick={logOut}>⛔</span>
+            </div>}
         </div>
     )
 }

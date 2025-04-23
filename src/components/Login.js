@@ -1,17 +1,12 @@
 import React, { useRef, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { validators } from '../utilities/validators';
 import { auth } from '../utilities/fireBase';
-import { addUser } from '../slices/userSlice';
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     let [signIn, setSignIn] = useState(true);
     let [errorMessage, setErrorMessage] = useState(null)
-    const dispatch = useDispatch()
     const name = useRef(null)
-    const navigate = useNavigate()
     const email = useRef(null);
     const password = useRef(null)
     function toggleSignIn() {
@@ -35,6 +30,9 @@ const Login = () => {
             createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
                     const user = userCredential.user;
+                    updateProfile(user, {
+                        displayName: name.current.value,
+                    })
                 })
                 .catch((error) => {
                     setErrorMessage('Email Already In Use')
