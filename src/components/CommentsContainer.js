@@ -13,14 +13,6 @@ const commentsData = [
                 text: "Yes, the editing is top-notch too!",
                 reply: []
             }, {
-                name: 'Bob Brown',
-                text: "The content creator did a great job explaining.",
-                reply: []
-            }, {
-                name: 'Charlie Davis',
-                text: "I learned so much from this video.",
-                reply: []
-            }, {
                 name: 'Diana Evans',
                 text: "Looking forward to more videos like this.",
                 reply: []
@@ -55,11 +47,6 @@ const commentsData = [
     {
         name: 'Karen Scott',
         text: "The visuals in this video are stunning!",
-        reply: []
-    },
-    {
-        name: 'Liam Turner',
-        text: "I love the way the topic was explained.",
         reply: []
     },
     {
