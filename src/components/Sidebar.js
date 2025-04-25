@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
     const showNav = useSelector(store => store.leftnav.isLeftnavOpen)
-    return !showNav ? null : (
+    const user = useSelector(store => store.user)
+    return !showNav || !user ? null : (
         <div className='w-52 ml-6'>
             <ul>
                 <li><Link to={'/'}>Home</Link></li>
