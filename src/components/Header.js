@@ -31,7 +31,7 @@ const Header = () => {
     }, [youtubeSuggestions])
 
     async function youtubeSearch(value) {
-        const data = await fetch('http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=' + value)
+        const data = await fetch('https://cors-anywhere.herokuapp.com/http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=' + value)
         const json = await data.json()
         setSuggestions(json[1])
         console.log(suggestions)

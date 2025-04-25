@@ -3,68 +3,68 @@ import { SIGN_IN_LOGO } from "../utilities/constants"
 
 const commentsData = [
     {
-        name: 'Ajay Gogia',
-        text: "This is one of the best video i ever watched",
+        name: 'John Doe',
+        text: "This video is amazing! Thanks for sharing.",
         reply: [{
-            name: 'Ajay Gogia',
-            text: "This is one of the best video i ever watched",
+            name: 'Jane Smith',
+            text: "I completely agree, it's very informative.",
             reply: [{
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Alice Johnson',
+                text: "Yes, the editing is top-notch too!",
                 reply: []
             }, {
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Bob Brown',
+                text: "The content creator did a great job explaining.",
                 reply: []
             }, {
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Charlie Davis',
+                text: "I learned so much from this video.",
                 reply: []
             }, {
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Diana Evans',
+                text: "Looking forward to more videos like this.",
                 reply: []
             }]
         }]
     },
     {
-        name: 'Ajay Gogia',
-        text: "This is one of the best video i ever watched",
+        name: 'Emily White',
+        text: "This tutorial is very helpful, thanks!",
         reply: [{
-            name: 'Ajay Gogia',
-            text: "This is one of the best video i ever watched",
+            name: 'Frank Green',
+            text: "Glad you found it helpful! I did too.",
             reply: [{
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Grace Hall',
+                text: "The step-by-step explanation was great.",
                 reply: []
             }, {
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Henry King',
+                text: "I appreciate the effort put into this video.",
                 reply: []
             }, {
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Ivy Lee',
+                text: "The examples used were very clear.",
                 reply: []
             }, {
-                name: 'Ajay Gogia',
-                text: "This is one of the best video i ever watched",
+                name: 'Jack Moore',
+                text: "I hope they make more tutorials like this.",
                 reply: []
             }]
         }]
     },
     {
-        name: 'Ajay Gogia',
-        text: "This is one of the best video i ever watched",
+        name: 'Karen Scott',
+        text: "The visuals in this video are stunning!",
         reply: []
     },
     {
-        name: 'Ajay Gogia',
-        text: "This is one of the best video i ever watched",
+        name: 'Liam Turner',
+        text: "I love the way the topic was explained.",
         reply: []
     },
     {
-        name: 'Ajay Gogia',
-        text: "This is one of the best video i ever watched",
+        name: 'Mia Walker',
+        text: "This is exactly what I was looking for, thank you!",
         reply: []
     }
 ]
